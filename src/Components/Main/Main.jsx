@@ -7,6 +7,13 @@ const Main = () => {
 
     const {previousPrompt,setPreviousPrompt,onSent,recentPrompt,setRecentPrompt,showResult,loading,resultData,input,setInput,newChat,extended,setExtended,toggleSidebar,isCollapsed,setIsCollapsed} = useContext(Context)
 
+    const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+        onSent();
+        console.log("Enter Pressed")
+    }
+}
+
   return (
     <div className='main'>
         
@@ -76,12 +83,12 @@ const Main = () => {
 
             <div className="main-bottom">
                 <div className="search-box">
-                    <input onChange={(e)=>setInput(e.target.value)} value={input} className="text" placeholder='Enter a prompt here'></input>
+                    <input onChange={(e)=>setInput(e.target.value)} value={input} onKeyDown={handleKeyDown} className="text" placeholder='Enter a prompt here'></input>
                     <div>
                         <img src={assets.gallery_icon} alt="gallery_icon" />
                         <img src={assets.mic_icon} alt="mic_icon" />
                         {
-                            input ? <img onClick={()=>onSent()} src={assets.send_icon} alt="send_icon" /> : null
+                            input ? <img onClick={()=>onSent()}   src={assets.send_icon} alt="send_icon" /> : null
                         }
                         
                         
