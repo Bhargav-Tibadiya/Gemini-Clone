@@ -108,7 +108,7 @@ const ContextProvider = (props) => {
         toggleSidebar,
         isCollapsed, 
         setIsCollapsed,
-        handleFutureUpdate
+        handleFutureUpdate  
     }
     return (
         <Context.Provider value={contextValue}>
