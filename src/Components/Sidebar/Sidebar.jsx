@@ -7,7 +7,7 @@ const Sidebar = () => {
 
   // const [extended, setExtended] = useState(true);
   // const [isCollapsed, setIsCollapsed] = useState(false);
-  const {onSent,previousPrompt,setRecentPrompt,newChat,extended,setExtended,toggleSidebar,isCollapsed,setIsCollapsed} = useContext(Context);
+  const {onSent,previousPrompt,setRecentPrompt,newChat,extended,setExtended,toggleSidebar,isCollapsed,setIsCollapsed,handleFutureUpdate} = useContext(Context);
 
 
   const loadPrompt = async(prompt) => {
@@ -69,17 +69,17 @@ const Sidebar = () => {
 
         <div className='bottom'>
           
-          <div className="bottom-item recent-entry">
-            <img src={assets.question_icon} alt="question_icon" />
+          <div onClick={handleFutureUpdate} className="bottom-item recent-entry">
+            <img onClick={handleFutureUpdate} src={assets.question_icon} alt="question_icon" />
             {extended ? <p>Help</p>: null }
           </div>
 
-          <div className="bottom-item recent-entry">
-            <img src={assets.history_icon} alt="history_icon" />
+          <div onClick={handleFutureUpdate} className="bottom-item recent-entry">
+            <img onClick={handleFutureUpdate} src={assets.history_icon} alt="history_icon" />
             {extended ? <p>Activity</p>: null }
           </div>
 
-          <div className="bottom-item recent-entry">
+          <div onClick={handleFutureUpdate} className="bottom-item recent-entry">
             <img src={assets.setting_icon} alt="setting_icon" />
             {extended ? <p>Setting</p>: null }
           </div>

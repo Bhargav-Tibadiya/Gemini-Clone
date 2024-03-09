@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import runChat from "../Config/Gemini";
+import { toast } from "react-toastify";
 
 export const Context = createContext();
 
@@ -14,6 +15,10 @@ const ContextProvider = (props) => {
 
     const [extended, setExtended] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(true);
+
+    const handleFutureUpdate = () => {
+        toast.error('Feature is not Added Yet.')
+    }
 
     const toggleSidebar = () => {
         if(extended){
@@ -102,7 +107,8 @@ const ContextProvider = (props) => {
         setExtended,
         toggleSidebar,
         isCollapsed, 
-        setIsCollapsed
+        setIsCollapsed,
+        handleFutureUpdate
     }
     return (
         <Context.Provider value={contextValue}>
